@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="宇宙意志｜可自訂目標日期與時間的高質感倒數鐘，支援即時倒數與本機保存。"
+  >
+  <title>宇宙意志</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="aurora aurora-left" aria-hidden="true"></div>
+  <div class="aurora aurora-right" aria-hidden="true"></div>
+  <div class="starfield" aria-hidden="true"></div>
+
+  <main class="app-shell">
+    <section class="hero-panel">
+      <p class="eyebrow">Countdown Experience</p>
+      <h1>宇宙意志</h1>
+      <p class="lead">
+        為重要時刻預留一個清楚、沉穩且具儀式感的倒數視窗。
+      </p>
+
+      <form class="control-panel" id="countdown-form">
+        <label class="field">
+          <span>目標日期與時間</span>
+          <input id="target-datetime" name="target-datetime" type="datetime-local" required>
+        </label>
+
+        <div class="button-row">
+          <button type="submit" class="primary-button">開始倒數</button>
+          <button type="button" class="ghost-button" id="reset-shortcut">設為 30 天後</button>
+        </div>
+
+        <p class="form-note" id="saved-hint">尚未設定目標時間。</p>
+      </form>
+    </section>
+
+    <section class="countdown-panel" aria-live="polite">
+      <div class="countdown-header">
+        <p class="panel-label">Remaining Time</p>
+        <p class="status-text" id="status-text">等待設定</p>
+      </div>
+
+      <div class="headline-block">
+        <p class="headline-number" id="total-days">0</p>
+        <p class="headline-unit">天</p>
+      </div>
+
+      <p class="headline-caption" id="headline-caption">
+        設定目標日期與時間後，倒數會即時開始。
+      </p>
+
+      <div class="time-grid">
+        <article class="time-card">
+          <span class="time-value" id="days-value">00</span>
+          <span class="time-label">Days</span>
+        </article>
+        <article class="time-card">
+          <span class="time-value" id="hours-value">00</span>
+          <span class="time-label">Hours</span>
+        </article>
+        <article class="time-card">
+          <span class="time-value" id="minutes-value">00</span>
+          <span class="time-label">Minutes</span>
+        </article>
+        <article class="time-card">
+          <span class="time-value" id="seconds-value">00</span>
+          <span class="time-label">Seconds</span>
+        </article>
+      </div>
+
+      <div class="detail-strip">
+        <div>
+          <p class="detail-label">目標時刻</p>
+          <p class="detail-value" id="target-display">尚未設定</p>
+        </div>
+        <div>
+          <p class="detail-label">目前狀態</p>
+          <p class="detail-value highlight" id="phase-display">待命中</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
